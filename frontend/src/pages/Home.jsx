@@ -56,7 +56,7 @@ function Home() {
       )}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {recipes.map(recipe => (
-          <RecipeCard key={recipe.id} recipe={recipe} /* onDelete={handleDelete}  *//>
+          <RecipeCard key={recipe._id} recipe={recipe} /* onDelete={handleDelete}  *//>
         ))}
       </div>
     </div>

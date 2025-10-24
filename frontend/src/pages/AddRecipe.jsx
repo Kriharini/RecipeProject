@@ -8,6 +8,7 @@ function AddRecipe() {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState("");
+    const [image, setImage] = useState(""); // for URL
     const navigateToHome = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,6 +18,7 @@ function AddRecipe() {
             title,
             ingredients: ingredients.split(",").map((ing) => ing.trim()),
             steps,
+            image,
         };
 
         await axios.post(API_URL, recipe);
@@ -51,7 +53,12 @@ function AddRecipe() {
                     onChange={(e) => setSteps(e.target.value)}
                     required
                 />
-
+                <input
+                        className="border p-2 w-full rounded"
+                        placeholder="Image URL (optional)"
+                        value={image}
+                        onChange={e => setImage(e.target.value)}
+                        />
                 <button
                     className="w-full bg-green-600 text-white font-semibold py-2 rounded-md hover:bg-green-700 transition"
                     type="Submit"
